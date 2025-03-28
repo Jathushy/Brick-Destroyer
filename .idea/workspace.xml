@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83d8463a-d935-46ad-bd34-809913e2b032" name="Changes" comment="Committing game files from old repo" />
+    <list default="true" id="83d8463a-d935-46ad-bd34-809913e2b032" name="Changes" comment="Committing game files from old repo">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +25,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Jathushy/Brick-Destroyer.git&quot;,
-    &quot;accountId&quot;: &quot;18ef623f-77a6-4b3a-9e83-eace5486ba8c&quot;
+    &quot;accountId&quot;: &quot;3b184b0d-5bd6-45fd-b715-387721afae2f&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -43,9 +46,11 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Project",
+    "last_opened_file_path": "/Users/jathushpradeepan/Library/CloudStorage/OneDrive-education.wa.edu.au/Python/Brick-Destroyer",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.29425287"
+    "project.structure.side.proportion": "0.29425287",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RunManager">
