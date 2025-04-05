@@ -12,5 +12,5 @@ def check_collision(ball, paddle, bricks):
                 brick.position[1] <= ball.position[1] <= brick.position[1] + brick.height:
             brick.alive = False  # Remove brick
             ball.direction[1] *= -1  # Reverse ball direction
-            score_increment += 50  # Increase score count
+            score_increment += 1  # Increase score count
     return score_increment

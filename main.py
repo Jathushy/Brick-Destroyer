@@ -1,4 +1,5 @@
 import pygame
+import random
 from models.paddle import Paddle
 from models.ball import Ball
 from models.brick import Brick
@@ -57,7 +58,7 @@ def main():
     show_title_screen(screen, clock)  # Showing title page
 
     paddle = Paddle([400, 570], 100, 10)  # Player's paddle
-    ball = Ball([400, 300], 10, 5)  # The ball
+    ball = Ball([random.randint(20, 780), random.randint(350, 500)], 10, 5)  # The ball
     bricks = create_brick_wall(5, 10, 60, 20, 5, 50, 50)  # Create a wall of bricks
 
     score = 0  # Initial value of score
