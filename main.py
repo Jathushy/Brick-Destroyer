@@ -29,16 +29,18 @@ def main():
     ball = Ball([400, 300], 10, 5)  # The ball
     bricks = create_brick_wall(5, 10, 60, 20, 5, 50, 50)  # Create a wall of bricks
 
+    score = 0  # Initialize score
+    font = pygame.font.Font(None, 36)  # Font for displaying score
+
     running = True
     while running:
         for event in pygame.event.get():  # Check if user quits
             if event.type == pygame.QUIT:
                 running = False
-
         process_input(paddle)  # Handle paddle movement
         ball.move()  # Move the ball
-        check_collision(ball, paddle, bricks)  # Checks for collisions
-        render(screen, paddle, ball, bricks)  # Displays everything
+        score += check_collision(ball, paddle, bricks)  # Update score
+        render(screen, paddle, ball, bricks, score, font)  # Displays everything
         clock.tick(60)
 
 
