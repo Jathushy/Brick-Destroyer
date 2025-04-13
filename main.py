@@ -24,11 +24,11 @@ def get_font(font_type):
 # Generating a grid of bricks
 def create_brick_wall(rows, cols, brick_width, brick_height, padding, offset_x, offset_y):
     return [
-        Brick([
-            offset_x + col * (brick_width + padding) + (brick_width // 2 if row % 2 else 0),
-            offset_y + row * (brick_height + padding)
+        Brick([ #   Create a new Brick object
+            offset_x + col * (brick_width + padding) + (brick_width // 2 if row % 2 else 0), # Calculating x position of brick
+            offset_y + row * (brick_height + padding) # Calculating y position of brick
         ], brick_width, brick_height)
-        for row in range(rows) for col in range(cols)
+        for row in range(rows) for col in range(cols) # Nested loop for every row and column
     ]
 
 
@@ -45,7 +45,7 @@ def show_title_screen(screen, clock):
         screen.blit(text_1, ((800 - text_1.get_width()) // 2, 320))
         screen.blit(text_2, ((800 - text_2.get_width()) // 2, 370))
         pygame.display.flip()
-        for event in pygame.event.get():
+        for event in pygame.event.get(): # Waiting for enter button to be pressed
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     waiting = False
@@ -72,7 +72,7 @@ def show_game_over_screen(screen, clock, score):
         screen.blit(try_again_text, (340, 360))
         screen.blit(exit_text, (370, 430))
         pygame.display.flip()
-        # Button click
+        # Button click detections
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 if try_again_rect.collidepoint(event.pos):
@@ -84,10 +84,11 @@ def show_game_over_screen(screen, clock, score):
 
 # Win screen
 def show_win_screen(screen, clock, score):
+    # Text
     title_text = get_font("title").render("All bricks destroyed!", True, white)
     play_again_text = get_font("text").render("Play Again", True, black)
     exit_text = get_font("text").render("Exit", True, black)
-
+    # Buttons
     play_again_rect = pygame.Rect(300, 350, 200, 50)
     exit_rect = pygame.Rect(300, 420, 200, 50)
 
@@ -99,7 +100,7 @@ def show_win_screen(screen, clock, score):
         screen.blit(play_again_text, (330, 360))
         screen.blit(exit_text, (370, 430))
         pygame.display.flip()
-
+        # Button click detections
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 if play_again_rect.collidepoint(event.pos):
