@@ -22,7 +22,32 @@ destroy all the bricks on screen.
 Python need to be installed with the PyGame module. To run the Brick Destroyer game run the "main.py" file.
 
 ## **Usage Guide:**
-Games uses a/d and arrow keys for side to side movement
+Games uses a/d and arrow keys for side to side movement. This is also mentioned within the game.
 
 ## **Requirements Reference:**
+1. The game displays a title screen when launched using the show_title_screen() function in main.py, which presents 
+the game title, instructions for controls, and waits for the player to press Enter to begin.
 
+
+2. The player controls a paddle to bounce the ball back up, this is done by the Paddle class in paddle.py manages 
+the paddle’s position, movement speed, and ensures it stays within the screen 
+boundaries.
+
+
+3. Bricks are generated using the create_brick_wall() function. Collision detection is performed by the 
+check_collision() function, which changes the alive status of the bricks when hit and updates the score.
+
+
+4. The game keeps track of the score and displays it by incrementing whenever a brick is destroyed and is rendered on 
+the screen by the render() function in renderer.py.
+
+
+5. The show_game_over_screen() function displays a "Game Over" message, the player's score, and provides options to try 
+again or exit the game.
+
+
+6. When the score reaches 50 which is the number blocks, the game ends and show_win_screen() displays a message and 
+options.
+
+## **Credits and Acknowledgements:**
+- AI was used in this project to help set up a running layout for the bricks, collision detection and some bug fixing.

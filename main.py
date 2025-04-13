@@ -84,7 +84,7 @@ def show_game_over_screen(screen, clock, score):
 
 # Win screen
 def show_win_screen(screen, clock, score):
-    title_text = get_font("title").render("All brick destroyed!", True, white)
+    title_text = get_font("title").render("All bricks destroyed!", True, white)
     play_again_text = get_font("text").render("Play Again", True, black)
     exit_text = get_font("text").render("Exit", True, black)
 
