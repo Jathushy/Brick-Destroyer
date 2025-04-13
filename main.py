@@ -82,6 +82,33 @@ def show_game_over_screen(screen, clock, score):
         clock.tick(60)
 
 
+# Win screen
+def show_win_screen(screen, clock, score):
+    title_text = get_font("title").render("All brick destroyed!", True, white)
+    play_again_text = get_font("text").render("Play Again", True, black)
+    exit_text = get_font("text").render("Exit", True, black)
+
+    play_again_rect = pygame.Rect(300, 350, 200, 50)
+    exit_rect = pygame.Rect(300, 420, 200, 50)
+
+    while True:
+        screen.fill(black)
+        screen.blit(title_text, ((800 - title_text.get_width()) // 2, 150))
+        pygame.draw.rect(screen, gray, play_again_rect)
+        pygame.draw.rect(screen, gray, exit_rect)
+        screen.blit(play_again_text, (330, 360))
+        screen.blit(exit_text, (370, 430))
+        pygame.display.flip()
+
+        for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                if play_again_rect.collidepoint(event.pos):
+                    return True
+                elif exit_rect.collidepoint(event.pos):
+                    return False
+        clock.tick(60)
+
+
 # Main game loop
 def main():
     pygame.init()
@@ -98,6 +125,7 @@ def main():
         lives = 3  # Player starts with 3 lives
         running = True
         game_over = False
+        win = False
 
         while running:
             for event in pygame.event.get():  # Check if user quits
@@ -115,14 +143,26 @@ def main():
                     game_over = True
                     running = False
                 else:
-                    ball = Ball([random.randint(20, 780), random.randint(350, 500)], 10, 5)  # New ball
+                    # New ball
+                    ball = Ball([random.randint(20, 780), random.randint(350, 500)], 10, 5)
 
             score += check_collision(ball, paddle, bricks)  # Update score
+
+            # Check if all bricks are destroyed
+            if score == 50:
+                win = True
+                running = False
+
             render(screen, paddle, ball, bricks, score, get_font("text"), lives)  # Displays everything
             clock.tick(60)
-
+        #   Game over
         if game_over:
             try_again = show_game_over_screen(screen, clock, score)
+            if not try_again:
+                break  # Exit game
+        # You win!
+        elif win:
+            try_again = show_win_screen(screen, clock, score)
             if not try_again:
                 break  # Exit game
 
